@@ -1,0 +1,18 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "pyspice-rs"
+version = "1.0.0"
+description = "PySpice"
+requires-python = ">=3.10"
+dependencies = ["numpy"]
+
+[tool.maturin]
+manifest-path = "Cargo.toml"
+features = ["python"]
+module-name = "pyspice_rs"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

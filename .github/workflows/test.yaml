@@ -1,0 +1,31 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Cargo tests
+        run: nix develop --command cargo test
+
+      - name: Python tests
+        run: |
+          nix develop --command bash -c '
+            python3 -m venv .venv --system-site-packages
+            source .venv/bin/activate
+            maturin develop
+            python3 -m pytest -v
+          '

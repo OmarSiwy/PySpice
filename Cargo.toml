@@ -1,0 +1,26 @@
+[package]
+name = "pyspice-rs"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "pyspice"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pyo3 = { version = "0.24", features = ["extension-module"] }
+numpy = "0.24"
+num-complex = "0.4"
+thiserror = "2"
+tempfile = "3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+regex = "1"
+
+[dev-dependencies]
+pretty_assertions = "1"
+
+[features]
+default = ["python"]
+python = []
+cabi = []

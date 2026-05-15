@@ -1,0 +1,32 @@
+# Build artifacts
+/target/
+Cargo.lock
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+
+# mdBook output
+/book/
+
+# Test/cache
+.pytest_cache/
+.tox/
+
+# Output from tests
+schema/
+target_nix/
