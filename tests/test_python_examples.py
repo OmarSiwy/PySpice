@@ -58,13 +58,13 @@ class TestExamples:
     def test_05_cmos_inverter(self):
         r = run_example("05_cmos_inverter.py")
         assert r.returncode == 0, r.stderr
-        assert "M1" in r.stdout
-        assert "M2" in r.stdout
+        assert "Mp1" in r.stdout
+        assert "Mn1" in r.stdout
 
     def test_06_opamp_inverting(self):
         r = run_example("06_opamp_inverting.py")
         assert r.returncode == 0, r.stderr
-        assert "B1" in r.stdout
+        assert "Bopamp" in r.stdout
 
     def test_07_diode_rectifier(self):
         r = run_example("07_diode_rectifier.py")
@@ -89,8 +89,8 @@ class TestExamples:
     def test_10_subcircuit(self):
         r = run_example("10_subcircuit.py")
         assert r.returncode == 0, r.stderr
-        assert "X1" in r.stdout
-        assert ".subckt" in r.stdout.lower()
+        assert "Xinv1" in r.stdout
+        assert "subcircuit" in r.stdout.lower()
 
     def test_11_jfet_amplifier(self):
         r = run_example("11_jfet_amplifier.py")
@@ -100,7 +100,7 @@ class TestExamples:
     def test_12_transmission_line(self):
         r = run_example("12_transmission_line.py")
         assert r.returncode == 0, r.stderr
-        assert "T1" in r.stdout
+        assert "Tline" in r.stdout
         assert "Z0=50" in r.stdout
 
     def test_13_switches(self):
